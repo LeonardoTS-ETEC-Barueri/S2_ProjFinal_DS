@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace S2_ProjFinal_DS
+namespace UI_ProjFinalDS
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace S2_ProjFinal_DS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Home());
         }
     }
 }

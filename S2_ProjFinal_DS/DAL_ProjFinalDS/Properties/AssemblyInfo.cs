@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
-// associadas a um assembly.
-[assembly: AssemblyTitle("UI_ProjFinalDS")]
+// associada a um assembly.
+[assembly: AssemblyTitle("DAL_ProjFinalDS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("UI_ProjFinalDS")]
+[assembly: AssemblyProduct("DAL_ProjFinalDS")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("8aee4a39-a35b-423f-b8d6-bf552c05aaa9")]
+[assembly: Guid("9a62a611-f529-46fb-af02-c4b6d449d0ae")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //

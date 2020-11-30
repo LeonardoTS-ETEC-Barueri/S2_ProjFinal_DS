@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace S2_ProjFinal_DS.Properties
+namespace UI_ProjFinalDS.Properties
 {
 
 

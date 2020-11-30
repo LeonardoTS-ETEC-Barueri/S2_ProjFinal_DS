@@ -1,0 +1,11 @@
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\bin\Debug\BLL_ProjFinalDS.dll
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\bin\Debug\BLL_ProjFinalDS.pdb
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\bin\Debug\DAL_ProjFinalDS.dll
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\bin\Debug\DTOL_ProjFinalDS.dll
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\bin\Debug\DAL_ProjFinalDS.pdb
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\bin\Debug\DTOL_ProjFinalDS.pdb
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\obj\Debug\BLL_ProjFinalDS.csprojAssemblyReference.cache
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\obj\Debug\BLL_ProjFinalDS.csproj.CoreCompileInputs.cache
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\obj\Debug\BLL_ProjFinalDS.csproj.CopyComplete
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\obj\Debug\BLL_ProjFinalDS.dll
+D:\Taka Outerheaven\[17.02.2020] ETEC - ADS\Modulo 02\Desenvolvimento de Sistemas\MeusProjetosDS\S2_ProjFinal_DS\S2_ProjFinal_DS\BLL_ProjFinalDS\obj\Debug\BLL_ProjFinalDS.pdb
