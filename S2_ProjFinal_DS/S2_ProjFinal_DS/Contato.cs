@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace S2_ProjFinal_DS
 {
-    public partial class Form1 : Form
+    public partial class Contato : Form
     {
-        public Form1()
+        public Contato()
         {
             InitializeComponent();
         }
+
     }
 }

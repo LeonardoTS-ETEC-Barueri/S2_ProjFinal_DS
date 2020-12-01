@@ -36,3 +36,23 @@ DESCRIBE tbl_convidado_compromisso;
 SELECT * FROM tbl_contato;
 SELECT * FROM tbl_compromisso;
 SELECT * FROM tbl_convidado_compromisso;
+
+INSERT INTO tbl_contato
+	(nome_contato, telefone, email, empresa, cargo)
+VALUES 
+	('Alfino Testeiro', '011916886312', 'thegreatalfino@testeiro.com', 'QA Services', 'Quality Assurance Tester');
+    
+# UPDATE tbl_contato
+# SET cargo = 'Quality Assurance Tester'
+# WHERE nome_contato = 'Alfino Testeiro'
+# LIMIT 1;
+    
+INSERT INTO tbl_compromisso
+	(cod_compromisso, assunto, data_compromisso, horario, descricao, estaAtivo)
+VALUES
+	(DEFAULT, 'Primeiro Teste', '2020-11-30', '20:00:00', 'Primeiro teste de qualidade do software "Lista Contatos"', DEFAULT);
+    
+INSERT INTO tbl_convidado_compromisso
+	(nome_contato, cod_compromisso, estaConfirmado)
+VALUES
+	('Alfino Testeiro', '1', DEFAULT);
