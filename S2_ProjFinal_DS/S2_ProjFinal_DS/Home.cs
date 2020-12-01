@@ -26,7 +26,7 @@ namespace UI_ProjFinalDS
 
             // Essas linhas desabilitam a seleção inicial da primeira linha dos dataGridView da tela Home.
             this.dataGridViewCompromissos.ClearSelection(); 
-            this.dataGridView1.ClearSelection();
+            this.dataGridViewContatos.ClearSelection();
 
         }
     }

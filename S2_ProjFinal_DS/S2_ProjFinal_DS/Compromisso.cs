@@ -25,8 +25,8 @@ namespace S2_ProjFinal_DS
             this.tbl_contatoTableAdapter.Fill(this.db_listacontatos_ds_fims2DataSet2.tbl_contato);
 
             // Essas linhas desabilitam a seleção inicial da primeira linha dos dataGridView da tela Compromisso.
-            this.dataGridView1.ClearSelection();
-            this.dataGridView2.ClearSelection();
+            this.dataGridViewContatosCompromisso.ClearSelection();
+            this.dataGridViewConvidadosCompromisso.ClearSelection();
 
         }
     }
