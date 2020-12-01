@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942" />
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604" />
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d" />
+    <Reference Include="MySql.Data, Version=8.0.21.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,8 +53,42 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compromisso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compromisso.Designer.cs">
+      <DependentUpon>Compromisso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contato.Designer.cs">
+      <DependentUpon>Contato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="db_listacontatos_ds_fims2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_listacontatos_ds_fims2DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_listacontatos_ds_fims2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_listacontatos_ds_fims2DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_listacontatos_ds_fims2DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_listacontatos_ds_fims2DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_listacontatos_ds_fims2DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_listacontatos_ds_fims2DataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +97,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Compromisso.resx">
+      <DependentUpon>Compromisso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contato.resx">
+      <DependentUpon>Contato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +115,50 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="db_listacontatos_ds_fims2DataSet.xsc">
+      <DependentUpon>db_listacontatos_ds_fims2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_listacontatos_ds_fims2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet.xss">
+      <DependentUpon>db_listacontatos_ds_fims2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet1.xsc">
+      <DependentUpon>db_listacontatos_ds_fims2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_listacontatos_ds_fims2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet1.xss">
+      <DependentUpon>db_listacontatos_ds_fims2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet2.xsc">
+      <DependentUpon>db_listacontatos_ds_fims2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_listacontatos_ds_fims2DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet2.xss">
+      <DependentUpon>db_listacontatos_ds_fims2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet3.xsc">
+      <DependentUpon>db_listacontatos_ds_fims2DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_listacontatos_ds_fims2DataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_listacontatos_ds_fims2DataSet3.xss">
+      <DependentUpon>db_listacontatos_ds_fims2DataSet3.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
