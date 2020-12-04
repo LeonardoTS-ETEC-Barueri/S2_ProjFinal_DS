@@ -86,6 +86,7 @@
             this.btnContatoAdd.TabIndex = 9;
             this.btnContatoAdd.Text = "Novo contato";
             this.btnContatoAdd.UseVisualStyleBackColor = false;
+            this.btnContatoAdd.Click += new System.EventHandler(this.btnContatoAdd_Click);
             // 
             // tabctrlContatos
             // 
@@ -127,12 +128,15 @@
             this.cargoDataGridViewTextBoxColumn});
             this.dataGridViewContatos.DataSource = this.tblcontatoBindingSource;
             this.dataGridViewContatos.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewContatos.MultiSelect = false;
             this.dataGridViewContatos.Name = "dataGridViewContatos";
             this.dataGridViewContatos.ReadOnly = true;
             this.dataGridViewContatos.RowHeadersVisible = false;
             this.dataGridViewContatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewContatos.Size = new System.Drawing.Size(596, 150);
             this.dataGridViewContatos.TabIndex = 8;
+            this.dataGridViewContatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContatos_CellClick);
+            this.dataGridViewContatos.SelectionChanged += new System.EventHandler(this.dataGridViewContatos_SelectionChanged);
             // 
             // nomecontatoDataGridViewTextBoxColumn
             // 
@@ -254,12 +258,15 @@
             this.estaAtivoDataGridViewCheckBoxColumn});
             this.dataGridViewCompromissos.DataSource = this.tblcompromissoBindingSource;
             this.dataGridViewCompromissos.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewCompromissos.MultiSelect = false;
             this.dataGridViewCompromissos.Name = "dataGridViewCompromissos";
             this.dataGridViewCompromissos.ReadOnly = true;
             this.dataGridViewCompromissos.RowHeadersVisible = false;
             this.dataGridViewCompromissos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCompromissos.Size = new System.Drawing.Size(596, 150);
             this.dataGridViewCompromissos.TabIndex = 3;
+            this.dataGridViewCompromissos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCompromissos_CellClick);
+            this.dataGridViewCompromissos.SelectionChanged += new System.EventHandler(this.dataGridViewCompromissos_SelectionChanged);
             // 
             // codcompromissoDataGridViewTextBoxColumn
             // 
@@ -329,6 +336,7 @@
             this.btnCompromissoDetalhes.TabIndex = 6;
             this.btnCompromissoDetalhes.Text = "Detalhes";
             this.btnCompromissoDetalhes.UseVisualStyleBackColor = false;
+            this.btnCompromissoDetalhes.Click += new System.EventHandler(this.btnCompromissoDetalhes_Click);
             // 
             // btnCompromissoRmv
             // 
@@ -346,6 +354,7 @@
             this.btnCompromissoRmv.TabIndex = 5;
             this.btnCompromissoRmv.Text = "Remover";
             this.btnCompromissoRmv.UseVisualStyleBackColor = false;
+            this.btnCompromissoRmv.Click += new System.EventHandler(this.btnCompromissoRmv_Click);
             // 
             // btnCompromissoAdd
             // 
@@ -362,6 +371,7 @@
             this.btnCompromissoAdd.TabIndex = 4;
             this.btnCompromissoAdd.Text = "Novo compromisso";
             this.btnCompromissoAdd.UseVisualStyleBackColor = false;
+            this.btnCompromissoAdd.Click += new System.EventHandler(this.btnCompromissoAdd_Click);
             // 
             // lblSaudacao
             // 

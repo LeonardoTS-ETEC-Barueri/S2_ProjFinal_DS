@@ -38,7 +38,7 @@
             this.txbEmailContato = new System.Windows.Forms.TextBox();
             this.txbEmpresaContato = new System.Windows.Forms.TextBox();
             this.txbCargoContato = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.hline01 = new System.Windows.Forms.Label();
             this.btnAdicionarContato = new System.Windows.Forms.Button();
             this.btnVoltarContato = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -128,15 +128,15 @@
             this.txbCargoContato.Size = new System.Drawing.Size(348, 20);
             this.txbCargoContato.TabIndex = 10;
             // 
-            // label6
+            // hline01
             // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(13, 263);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(348, 2);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "horizontalLine01";
+            this.hline01.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.hline01.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Bold);
+            this.hline01.Location = new System.Drawing.Point(13, 263);
+            this.hline01.Name = "hline01";
+            this.hline01.Size = new System.Drawing.Size(348, 2);
+            this.hline01.TabIndex = 11;
+            this.hline01.Text = "horizontalLine01";
             // 
             // btnAdicionarContato
             // 
@@ -177,7 +177,7 @@
             this.ClientSize = new System.Drawing.Size(374, 335);
             this.Controls.Add(this.btnVoltarContato);
             this.Controls.Add(this.btnAdicionarContato);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.hline01);
             this.Controls.Add(this.txbCargoContato);
             this.Controls.Add(this.txbEmpresaContato);
             this.Controls.Add(this.txbEmailContato);
@@ -208,7 +208,7 @@
         private System.Windows.Forms.TextBox txbEmailContato;
         private System.Windows.Forms.TextBox txbEmpresaContato;
         private System.Windows.Forms.TextBox txbCargoContato;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label hline01;
         private System.Windows.Forms.Button btnAdicionarContato;
         private System.Windows.Forms.Button btnVoltarContato;
     }
