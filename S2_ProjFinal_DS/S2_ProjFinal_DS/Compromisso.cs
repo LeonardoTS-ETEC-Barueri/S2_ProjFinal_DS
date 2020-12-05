@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL_ProjFinalDS;
 using DTOL_ProjFinalDS;
-using UI_ProjFinalDS;
 
 namespace S2_ProjFinal_DS
 {
@@ -22,7 +21,7 @@ namespace S2_ProjFinal_DS
         string lastDataCompromisso;
         string lastHorario;
         bool lastAtivo;
-        DTO_Compromisso lastConvidados = new DTO_Compromisso();
+        DTO_Compromisso lastConvidados = new DTO_Compromisso(); // Sera o DataSource que contém os dados iniciais do compromisso detalhado.
 
         public Compromisso()
         {
@@ -64,8 +63,8 @@ namespace S2_ProjFinal_DS
             this.btnCancelarEdicao.Visible = true;
             this.btnCancelarEdicao.Enabled = true;
 
-            this.btnConvidarContato.Visible = true;
-            this.btnRmvConvidado.Visible = true;
+            //this.btnConvidarContato.Visible = true;
+            //this.btnRmvConvidado.Visible = true;
 
             this.txbAssuntoCompromisso.ReadOnly = false;
             this.txbDescricaoCompromisso.ReadOnly = false;
@@ -86,11 +85,11 @@ namespace S2_ProjFinal_DS
 
             DTO_Compromisso myCompromisso = new DTO_Compromisso();
             myCompromisso.codCompromisso = int.Parse(lblHiddenCod.Text);
-            lastConvidados.Convidados = BLL_Compromisso.verificarCompromisso(myCompromisso);
-            
-            
-            //MessageBox.Show("Assunto: " + lastAssunto + "\nDescricao: " + lastDescricao + "\nHorario: " + lastHorario + "\nData: " + myLastDataCompromisso.ToString() + "\nConvidados: " + lastConvidados.GetType());
+            lastConvidados.Convidados = BLL_Compromisso.verificarListaCompromisso(myCompromisso);
 
+            //MessageBox.Show("Atenção: A lista de contatos é salva automaticamente, diferentemente dos outros campos, ela não voltará atrás ao cancelar a edição.", "ATENÇÃO", MessageBoxButtons.OK ,MessageBoxIcon.Warning);
+
+            //MessageBox.Show("Assunto: " + lastAssunto + "\nDescricao: " + lastDescricao + "\nHorario: " + lastHorario + "\nData: " + myLastDataCompromisso.ToString() + "\nConvidados: " + lastConvidados.GetType());
 
         }
 
@@ -109,8 +108,8 @@ namespace S2_ProjFinal_DS
             this.btnCancelarEdicao.Visible = false;
             this.btnCancelarEdicao.Enabled = false;
 
-            this.btnConvidarContato.Visible = false;
-            this.btnRmvConvidado.Visible = false;
+            //this.btnConvidarContato.Visible = false;
+            //this.btnRmvConvidado.Visible = false;
 
             this.txbAssuntoCompromisso.ReadOnly = true;
             this.txbDescricaoCompromisso.ReadOnly = true;
@@ -129,10 +128,10 @@ namespace S2_ProjFinal_DS
             monthCalendarCompromisso.SetDate(myLastDataCompromisso);
 
             
-            List<DTO_Convidado> myLastConvidados = lastConvidados.Convidados;
-            dataGridViewConvidadosCompromisso.DataSource = null;
-            dataGridViewConvidadosCompromisso.DataSource = myLastConvidados;
-            this.dataGridViewConvidadosCompromisso.Columns["codCompromisso"].Visible = false;
+            //List<DTO_Convidado> myLastConvidados = lastConvidados.Convidados;
+            //dataGridViewConvidadosCompromisso.DataSource = null;
+            //dataGridViewConvidadosCompromisso.DataSource = myLastConvidados;
+            //this.dataGridViewConvidadosCompromisso.Columns["codCompromisso"].Visible = false;
             
         }
 
@@ -211,12 +210,31 @@ namespace S2_ProjFinal_DS
                 obj_dtoCompromisso.dataCompromisso = dataCompromisso.ToString("yyyy-MM-dd"); // Data validada.
                 obj_dtoCompromisso.horario = mtxbHorarioCompromisso.Text;
                 obj_dtoCompromisso.estaAtivo = chkBoxAtivo.Checked;
-                obj_dtoCompromisso.Convidados = (List<DTO_Convidado>)this.dataGridViewConvidadosCompromisso.DataSource;
+                obj_dtoCompromisso.Convidados = (List<DTO_Convidado>)this.dataGridViewConvidadosCompromisso.DataSource; // É opcional passar a lista atual de convidados.
 
-                // Inicia as validações dos dados do objeto por meio da BLL_Compromisso.
-                string retornoBLL = obj_bllCompromisso.alterarCompromisso(obj_dtoCompromisso);
+                // Inicia as validações dos dados do objeto por meio da BLL_Compromisso e salva os dados na base de dados.
+                string retornoBLL = obj_bllCompromisso.validarAltCompromisso(obj_dtoCompromisso);
 
-                MessageBox.Show(retornoBLL);    // Todo... Ao salvar os botões tem que voltar ao padrão e os dados da tela devem ser atualizados refletindo o estado salvo.
+                MessageBox.Show(retornoBLL);
+
+                // Volta os botões ao estado anterior à edição.
+                this.btnEditarCompromisso.Enabled = true;
+                this.btnEditarCompromisso.Visible = true;
+
+                this.btnVoltarCompromisso.Enabled = true;
+                this.btnVoltarCompromisso.Visible = true;
+
+                this.btnSalvarEdicao.Visible = false;
+                this.btnSalvarEdicao.Enabled = false;
+
+                this.btnCancelarEdicao.Visible = false;
+                this.btnCancelarEdicao.Enabled = false;
+
+                this.txbAssuntoCompromisso.ReadOnly = true;
+                this.txbDescricaoCompromisso.ReadOnly = true;
+                this.monthCalendarCompromisso.Enabled = false;
+                this.mtxbHorarioCompromisso.ReadOnly = true;
+                this.chkBoxAtivo.AutoCheck = false;
             }
 
         }
@@ -250,6 +268,8 @@ namespace S2_ProjFinal_DS
             if (!isConvidado)
             {
                 convidadosDataSource.Add(newConvidado);
+                string retornoBLL = BLL_Compromisso.validarNewConvidado(newConvidado);  // Adição à lista na Base de Dados.
+                MessageBox.Show(retornoBLL);
             }
 
             //MessageBox.Show("cod: " + lblHiddenCod.Text + "\nnome: " + dgvContatos.SelectedRows[0].Cells[0].Value.ToString() + "\nconfirmado: " + true.ToString());
@@ -279,6 +299,9 @@ namespace S2_ProjFinal_DS
             convidadosDataSource.RemoveAt(int.Parse(dgvConvidados.SelectedRows[0].Index.ToString()));
             //dgvConvidados.Rows.Remove(dgvConvidados.SelectedRows[0]);
 
+            string retornoBLL = BLL_Compromisso.validarRmvConvidado(convidadoRemovido); // Remoção da lista na Base de Dados.
+            MessageBox.Show(retornoBLL);
+
             dgvConvidados.DataSource = null;
             dgvConvidados.DataSource = convidadosDataSource;
             dgvConvidados.Columns[1].Visible = false;
@@ -286,8 +309,55 @@ namespace S2_ProjFinal_DS
             this.dataGridViewConvidadosCompromisso.ClearSelection();
             this.btnRmvConvidado.Enabled = false;
 
+        }
 
+        private void dataGridViewContatosCompromisso_Click(object sender, EventArgs e)
+        {
+            if (this.Text == "Novo compromisso")
+            {
+                MessageBox.Show("Você só poderá adicionar novos convidados depois de criar o compromisso.", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
+        private void dataGridViewConvidadosCompromisso_Click(object sender, EventArgs e)
+        {
+            if (this.Text == "Novo compromisso")
+            {
+                MessageBox.Show("Você só poderá manipular os convidados depois de criar o compromisso.", "ATENÇÃO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnSalvarNewCompromisso_Click(object sender, EventArgs e)
+        {
+            // Avisa o usuário sobre a operação, permita-o escolher continuar ou não. Se continuar, salve o compromisso.
+            DialogResult myAlert = MessageBox.Show("Deseja realmente salvar o compromisso?", "ATENÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (myAlert == DialogResult.Yes)
+            {
+                DTO_Compromisso obj_dtoCompromisso = new DTO_Compromisso();
+                BLL_Compromisso obj_bllCompromisso = new BLL_Compromisso();
+
+                // Armazena os dados atuais no objeto, isso é necessário para realizar a atualização.
+                obj_dtoCompromisso.codCompromisso = int.Parse(lblHiddenCod.Text);
+                obj_dtoCompromisso.assunto = txbAssuntoCompromisso.Text;
+                obj_dtoCompromisso.descricao = txbDescricaoCompromisso.Text;
+
+                string selectedDataCompromisso = monthCalendarCompromisso.SelectionRange.Start.ToString();
+                System.Globalization.CultureInfo myCulture = new System.Globalization.CultureInfo(System.Globalization.CultureInfo.CurrentCulture.Name.ToString());
+                DateTime dataCompromisso = DateTime.Parse(selectedDataCompromisso, myCulture);
+
+                obj_dtoCompromisso.dataCompromisso = dataCompromisso.ToString("yyyy-MM-dd"); // Data validada.
+                obj_dtoCompromisso.horario = mtxbHorarioCompromisso.Text;
+                obj_dtoCompromisso.estaAtivo = chkBoxAtivo.Checked;
+
+                // Inicia as validações dos dados do objeto por meio da BLL_Compromisso e salva os dados na base de dados.
+                string retornoBLL = obj_bllCompromisso.validarNewCompromisso(obj_dtoCompromisso);
+
+                MessageBox.Show(retornoBLL);
+
+                this.Close();
+                
+            }
         }
     }
 }

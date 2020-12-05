@@ -40,7 +40,6 @@
             this.cargoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tblcontatoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.db_listacontatos_ds_fims2DataSet1 = new S2_ProjFinal_DS.db_listacontatos_ds_fims2DataSet1();
-            this.btnContatoDetalhes = new System.Windows.Forms.Button();
             this.btnContatoRmv = new System.Windows.Forms.Button();
             this.tabctrlCompromissos = new System.Windows.Forms.TabControl();
             this.tabpgCompromissos = new System.Windows.Forms.TabPage();
@@ -101,7 +100,6 @@
             // tabpgContatos
             // 
             this.tabpgContatos.Controls.Add(this.dataGridViewContatos);
-            this.tabpgContatos.Controls.Add(this.btnContatoDetalhes);
             this.tabpgContatos.Controls.Add(this.btnContatoRmv);
             this.tabpgContatos.Controls.Add(this.btnContatoAdd);
             this.tabpgContatos.Location = new System.Drawing.Point(4, 24);
@@ -183,23 +181,6 @@
             this.db_listacontatos_ds_fims2DataSet1.DataSetName = "db_listacontatos_ds_fims2DataSet1";
             this.db_listacontatos_ds_fims2DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btnContatoDetalhes
-            // 
-            this.btnContatoDetalhes.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnContatoDetalhes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnContatoDetalhes.Enabled = false;
-            this.btnContatoDetalhes.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnContatoDetalhes.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            this.btnContatoDetalhes.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnContatoDetalhes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContatoDetalhes.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContatoDetalhes.Location = new System.Drawing.Point(530, 158);
-            this.btnContatoDetalhes.Name = "btnContatoDetalhes";
-            this.btnContatoDetalhes.Size = new System.Drawing.Size(72, 23);
-            this.btnContatoDetalhes.TabIndex = 11;
-            this.btnContatoDetalhes.Text = "Detalhes";
-            this.btnContatoDetalhes.UseVisualStyleBackColor = false;
-            // 
             // btnContatoRmv
             // 
             this.btnContatoRmv.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -210,12 +191,13 @@
             this.btnContatoRmv.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnContatoRmv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContatoRmv.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContatoRmv.Location = new System.Drawing.Point(441, 158);
+            this.btnContatoRmv.Location = new System.Drawing.Point(519, 158);
             this.btnContatoRmv.Name = "btnContatoRmv";
             this.btnContatoRmv.Size = new System.Drawing.Size(83, 23);
             this.btnContatoRmv.TabIndex = 10;
             this.btnContatoRmv.Text = "Remover";
             this.btnContatoRmv.UseVisualStyleBackColor = false;
+            this.btnContatoRmv.Click += new System.EventHandler(this.btnContatoRmv_Click);
             // 
             // tabctrlCompromissos
             // 
@@ -426,7 +408,6 @@
         private System.Windows.Forms.TabControl tabctrlCompromissos;
         private System.Windows.Forms.TabPage tabpgCompromissos;
         private System.Windows.Forms.Label lblSaudacao;
-        private System.Windows.Forms.Button btnContatoDetalhes;
         private System.Windows.Forms.Button btnContatoRmv;
         private System.Windows.Forms.Button btnCompromissoDetalhes;
         private System.Windows.Forms.Button btnCompromissoRmv;

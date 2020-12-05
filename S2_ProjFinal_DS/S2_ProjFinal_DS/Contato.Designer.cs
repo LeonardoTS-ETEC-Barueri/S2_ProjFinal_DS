@@ -34,13 +34,13 @@
             this.lblEmpresaContato = new System.Windows.Forms.Label();
             this.lblEmailContato = new System.Windows.Forms.Label();
             this.txbNomeContato = new System.Windows.Forms.TextBox();
-            this.txbTelefoneContato = new System.Windows.Forms.TextBox();
             this.txbEmailContato = new System.Windows.Forms.TextBox();
             this.txbEmpresaContato = new System.Windows.Forms.TextBox();
             this.txbCargoContato = new System.Windows.Forms.TextBox();
             this.hline01 = new System.Windows.Forms.Label();
             this.btnAdicionarContato = new System.Windows.Forms.Button();
             this.btnVoltarContato = new System.Windows.Forms.Button();
+            this.mtxbTelefoneContato = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // lblNomeContato
@@ -100,13 +100,6 @@
             this.txbNomeContato.Size = new System.Drawing.Size(348, 20);
             this.txbNomeContato.TabIndex = 2;
             // 
-            // txbTelefoneContato
-            // 
-            this.txbTelefoneContato.Location = new System.Drawing.Point(12, 80);
-            this.txbTelefoneContato.Name = "txbTelefoneContato";
-            this.txbTelefoneContato.Size = new System.Drawing.Size(348, 20);
-            this.txbTelefoneContato.TabIndex = 4;
-            // 
             // txbEmailContato
             // 
             this.txbEmailContato.Location = new System.Drawing.Point(12, 128);
@@ -153,6 +146,7 @@
             this.btnAdicionarContato.TabIndex = 12;
             this.btnAdicionarContato.Text = "Adicionar";
             this.btnAdicionarContato.UseVisualStyleBackColor = false;
+            this.btnAdicionarContato.Click += new System.EventHandler(this.btnAdicionarContato_Click);
             // 
             // btnVoltarContato
             // 
@@ -169,6 +163,20 @@
             this.btnVoltarContato.TabIndex = 13;
             this.btnVoltarContato.Text = "Voltar";
             this.btnVoltarContato.UseVisualStyleBackColor = false;
+            this.btnVoltarContato.Click += new System.EventHandler(this.btnVoltarContato_Click);
+            // 
+            // mtxbTelefoneContato
+            // 
+            this.mtxbTelefoneContato.AllowPromptAsInput = false;
+            this.mtxbTelefoneContato.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.mtxbTelefoneContato.Location = new System.Drawing.Point(12, 80);
+            this.mtxbTelefoneContato.Mask = "(000)000000009";
+            this.mtxbTelefoneContato.Name = "mtxbTelefoneContato";
+            this.mtxbTelefoneContato.ResetOnPrompt = false;
+            this.mtxbTelefoneContato.ResetOnSpace = false;
+            this.mtxbTelefoneContato.Size = new System.Drawing.Size(348, 20);
+            this.mtxbTelefoneContato.TabIndex = 4;
+            this.mtxbTelefoneContato.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // Contato
             // 
@@ -181,13 +189,13 @@
             this.Controls.Add(this.txbCargoContato);
             this.Controls.Add(this.txbEmpresaContato);
             this.Controls.Add(this.txbEmailContato);
-            this.Controls.Add(this.txbTelefoneContato);
             this.Controls.Add(this.txbNomeContato);
             this.Controls.Add(this.lblEmailContato);
             this.Controls.Add(this.lblEmpresaContato);
             this.Controls.Add(this.lblCargoContato);
             this.Controls.Add(this.lblTelefoneContato);
             this.Controls.Add(this.lblNomeContato);
+            this.Controls.Add(this.mtxbTelefoneContato);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Contato";
             this.Text = "Contato";
@@ -204,12 +212,12 @@
         private System.Windows.Forms.Label lblEmpresaContato;
         private System.Windows.Forms.Label lblEmailContato;
         private System.Windows.Forms.TextBox txbNomeContato;
-        private System.Windows.Forms.TextBox txbTelefoneContato;
         private System.Windows.Forms.TextBox txbEmailContato;
         private System.Windows.Forms.TextBox txbEmpresaContato;
         private System.Windows.Forms.TextBox txbCargoContato;
         private System.Windows.Forms.Label hline01;
         private System.Windows.Forms.Button btnAdicionarContato;
         private System.Windows.Forms.Button btnVoltarContato;
+        private System.Windows.Forms.MaskedTextBox mtxbTelefoneContato;
     }
 }

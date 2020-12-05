@@ -57,7 +57,7 @@
             this.txbDescricaoCompromisso = new System.Windows.Forms.TextBox();
             this.chkBoxAtivo = new System.Windows.Forms.CheckBox();
             this.btnSalvarEdicao = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnSalvarNewCompromisso = new System.Windows.Forms.Button();
             this.mtxbHorarioCompromisso = new System.Windows.Forms.MaskedTextBox();
             this.btnCancelarEdicao = new System.Windows.Forms.Button();
             this.lblHiddenCodCompromisso = new System.Windows.Forms.Label();
@@ -164,6 +164,7 @@
             this.dataGridViewContatosCompromisso.TabIndex = 10;
             this.dataGridViewContatosCompromisso.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContatosCompromisso_CellClick);
             this.dataGridViewContatosCompromisso.SelectionChanged += new System.EventHandler(this.dataGridViewContatosCompromisso_SelectionChanged);
+            this.dataGridViewContatosCompromisso.Click += new System.EventHandler(this.dataGridViewContatosCompromisso_Click);
             // 
             // nomecontatoDataGridViewTextBoxColumn
             // 
@@ -231,6 +232,7 @@
             this.dataGridViewConvidadosCompromisso.TabIndex = 12;
             this.dataGridViewConvidadosCompromisso.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewConvidadosCompromisso_CellClick);
             this.dataGridViewConvidadosCompromisso.SelectionChanged += new System.EventHandler(this.dataGridViewConvidadosCompromisso_SelectionChanged);
+            this.dataGridViewConvidadosCompromisso.Click += new System.EventHandler(this.dataGridViewConvidadosCompromisso_Click);
             // 
             // tblconvidadocompromissoBindingSource
             // 
@@ -262,7 +264,6 @@
             this.btnConvidarContato.TabIndex = 13;
             this.btnConvidarContato.Text = "Convidar contato";
             this.btnConvidarContato.UseVisualStyleBackColor = false;
-            this.btnConvidarContato.Visible = false;
             this.btnConvidarContato.Click += new System.EventHandler(this.btnConvidarContato_Click);
             // 
             // btnRmvConvidado
@@ -281,7 +282,6 @@
             this.btnRmvConvidado.TabIndex = 14;
             this.btnRmvConvidado.Text = "Remover convidado";
             this.btnRmvConvidado.UseVisualStyleBackColor = false;
-            this.btnRmvConvidado.Visible = false;
             this.btnRmvConvidado.Click += new System.EventHandler(this.btnRmvConvidado_Click);
             // 
             // btnEditarCompromisso
@@ -367,36 +367,38 @@
             this.btnSalvarEdicao.Visible = false;
             this.btnSalvarEdicao.Click += new System.EventHandler(this.btnSalvarEdicao_Click);
             // 
-            // btnSalvar
+            // btnSalvarNewCompromisso
             // 
-            this.btnSalvar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalvar.Enabled = false;
-            this.btnSalvar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSalvar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
-            this.btnSalvar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalvar.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalvar.Location = new System.Drawing.Point(450, 458);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(83, 23);
-            this.btnSalvar.TabIndex = 19;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Visible = false;
+            this.btnSalvarNewCompromisso.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnSalvarNewCompromisso.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvarNewCompromisso.Enabled = false;
+            this.btnSalvarNewCompromisso.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSalvarNewCompromisso.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.btnSalvarNewCompromisso.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnSalvarNewCompromisso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvarNewCompromisso.Font = new System.Drawing.Font("Liberation Sans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarNewCompromisso.Location = new System.Drawing.Point(450, 458);
+            this.btnSalvarNewCompromisso.Name = "btnSalvarNewCompromisso";
+            this.btnSalvarNewCompromisso.Size = new System.Drawing.Size(83, 23);
+            this.btnSalvarNewCompromisso.TabIndex = 19;
+            this.btnSalvarNewCompromisso.Text = "Salvar";
+            this.btnSalvarNewCompromisso.UseVisualStyleBackColor = false;
+            this.btnSalvarNewCompromisso.Visible = false;
+            this.btnSalvarNewCompromisso.Click += new System.EventHandler(this.btnSalvarNewCompromisso_Click);
             // 
             // mtxbHorarioCompromisso
             // 
-            this.mtxbHorarioCompromisso.AllowPromptAsInput = false;
             this.mtxbHorarioCompromisso.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.mtxbHorarioCompromisso.Location = new System.Drawing.Point(459, 235);
             this.mtxbHorarioCompromisso.Mask = "00:00:00";
             this.mtxbHorarioCompromisso.Name = "mtxbHorarioCompromisso";
+            this.mtxbHorarioCompromisso.PromptChar = '0';
             this.mtxbHorarioCompromisso.ResetOnPrompt = false;
             this.mtxbHorarioCompromisso.ResetOnSpace = false;
             this.mtxbHorarioCompromisso.Size = new System.Drawing.Size(100, 20);
             this.mtxbHorarioCompromisso.TabIndex = 8;
             this.mtxbHorarioCompromisso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtxbHorarioCompromisso.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             // 
             // btnCancelarEdicao
             // 
@@ -462,10 +464,10 @@
             this.Controls.Add(this.lblHorarioCompromisso);
             this.Controls.Add(this.monthCalendarCompromisso);
             this.Controls.Add(this.btnVoltarCompromisso);
-            this.Controls.Add(this.btnEditarCompromisso);
-            this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.btnSalvarEdicao);
             this.Controls.Add(this.btnCancelarEdicao);
+            this.Controls.Add(this.btnEditarCompromisso);
+            this.Controls.Add(this.btnSalvarNewCompromisso);
+            this.Controls.Add(this.btnSalvarEdicao);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Compromisso";
             this.Text = "CompromissoNovoAlterar";
@@ -511,7 +513,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn empresaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cargoDataGridViewTextBoxColumn;
         public System.Windows.Forms.Button btnSalvarEdicao;
-        public System.Windows.Forms.Button btnSalvar;
+        public System.Windows.Forms.Button btnSalvarNewCompromisso;
         public System.Windows.Forms.MaskedTextBox mtxbHorarioCompromisso;
         public System.Windows.Forms.Button btnCancelarEdicao;
         public System.Windows.Forms.Label lblHiddenCodCompromisso;

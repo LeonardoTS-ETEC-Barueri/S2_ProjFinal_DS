@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DAL_Compromisso.cs" />
     <Compile Include="DAL_Conexao.cs" />
+    <Compile Include="DAL_Contato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

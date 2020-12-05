@@ -57,20 +57,32 @@ namespace UI_ProjFinalDS
         {
             // Exibe uma tela "Compromisso" vazia, para que o usuário registre um novo compromisso.
             this.Hide();
-            Compromisso telaCompromisso = new Compromisso();
-            telaCompromisso.Text = "Novo compromisso";
-            telaCompromisso.ShowDialog();
-            this.Show();
+
+            Compromisso telaNewCompromisso = new Compromisso();
+
+            telaNewCompromisso.Text = "Novo compromisso";   // Altera o título da tela para "Novo compromisso" 
+            // Esse título não deve ser modificado, por meio dele, o evento "Click" na área de contatos/convidados ocorre,
+            // exibindo a informação sobre a impossibilidade de manipular convidados no momento.
+
+            telaNewCompromisso.dataGridViewContatosCompromisso.DataSource = null; // Desabilita a exibição dos contatos.
+
+            telaNewCompromisso.btnSalvarNewCompromisso.Visible = true;    // Ativa o botão de salvar para a base de dados.
+            telaNewCompromisso.btnSalvarNewCompromisso.Enabled = true;
+
+            telaNewCompromisso.ShowDialog();
             atualizarCompromisso();
+            this.Show();
+            
         }
 
         private void btnContatoAdd_Click(object sender, EventArgs e)
         {
             // Exibe uma tela "Contato" vazia, para que o usuário registre um novo contato.
             this.Hide();
-            Contato telaContato = new Contato();
-            telaContato.Text = "Novo contato";
-            telaContato.ShowDialog();
+            Contato telaNewContato = new Contato();
+            telaNewContato.Text = "Novo contato";
+            telaNewContato.ShowDialog();
+            atualizarContato();
             this.Show();
 
         }
@@ -118,7 +130,6 @@ namespace UI_ProjFinalDS
             {
                 dataGridViewContatos.ClearSelection();
                 this.btnContatoRmv.Enabled = false;
-                this.btnContatoDetalhes.Enabled = false;
 
                 isContatoSelected = false;
             }
@@ -126,7 +137,6 @@ namespace UI_ProjFinalDS
             {
                 //dataGridViewContatos.CurrentRow.Selected = true;
                 this.btnContatoRmv.Enabled = true;
-                this.btnContatoDetalhes.Enabled = true;
 
                 isContatoSelected = true;
             }
@@ -150,9 +160,23 @@ namespace UI_ProjFinalDS
                 if (isCompromissoSelected)  // Garante que os Toggles da seleção de linha no dataGridView não entrem em conflito no primeiro clique caso a linha estivesse selecionada quando ocorrer a atualização.
                 {
                     isCompromissoSelected = false;
-                } else if (isContatoSelected)
+                }
+
+            }
+        }
+
+        private void atualizarContato()
+        {
+            this.tbl_contatoTableAdapter.Fill(this.db_listacontatos_ds_fims2DataSet1.tbl_contato); // Atualiza a dataGridView preenchendo-a com os dados da tbl_compromisso que estão configuradas como dataTable pro método Fill.
+
+            if (dataGridViewContatos.SelectedRows.Count > 0) // Garante que os botões não vão ficar ativos depois de uma atualização.
+            {
+                this.dataGridViewContatos.ClearSelection();
+                this.btnContatoRmv.Enabled = false;
+
+                if (isCompromissoSelected)  // Garante que os Toggles da seleção de linha no dataGridView não entrem em conflito no primeiro clique caso a linha estivesse selecionada quando ocorrer a atualização.
                 {
-                    isContatoSelected = false;
+                    isCompromissoSelected = false;
                 }
 
             }
@@ -177,16 +201,16 @@ namespace UI_ProjFinalDS
                     // Index da linha selecionada para realizar a exclusão "Cells[0]" deve ser o cod_compromisso no dataGridViewCompromissos.
                     obj_dtoCompromisso.codCompromisso = int.Parse(mySelectedRow.Cells[0].Value.ToString());
 
-                    string retornoBLL = obj_bllCompromisso.validarCompromisso(obj_dtoCompromisso);
+                    string retornoBLL = obj_bllCompromisso.validarRmvCompromisso(obj_dtoCompromisso);
 
                     MessageBox.Show(retornoBLL, "CONCLUSÃO", MessageBoxButtons.OK);
                     atualizarCompromisso();
 
                 }
-                else
-                {
-                    MessageBox.Show("Sábia decisão...");
-                }
+                //else
+                //{
+                    //MessageBox.Show("Sábia decisão...");
+                //}
 
                 //dataGridViewCompromissos.Rows.Remove(mySelectedRow);    // Ao clicar, remove a linha selecionada.
 
@@ -229,7 +253,7 @@ namespace UI_ProjFinalDS
             telaDetCompromisso.lblHiddenCod.Text = obj_dtoCompromisso.codCompromisso.ToString();
 
             // Verifica se existem convidados nesse compromisso e atualiza a GridView da tela Compromisso de acordo...
-            obj_dtoCompromisso.Convidados = BLL_Compromisso.verificarCompromisso(obj_dtoCompromisso);    // Deve retornar uma lista de convidados.
+            obj_dtoCompromisso.Convidados = BLL_Compromisso.verificarListaCompromisso(obj_dtoCompromisso);    // Deve retornar uma lista de convidados.
 
             List<DTO_Convidado> myConvidados = obj_dtoCompromisso.Convidados;   // Atribui a lista de convidados do nosso obj_dtoCompromisso a uma variável.
             
@@ -240,8 +264,8 @@ namespace UI_ProjFinalDS
 
             // Desabilita inicialmente a edição dos detalhes.
 
-            telaDetCompromisso.btnConvidarContato.Enabled = false;
-            telaDetCompromisso.btnRmvConvidado.Enabled = false;
+            //telaDetCompromisso.btnConvidarContato.Enabled = false;
+            //telaDetCompromisso.btnRmvConvidado.Enabled = false;
             telaDetCompromisso.txbAssuntoCompromisso.ReadOnly = true;
             telaDetCompromisso.txbDescricaoCompromisso.ReadOnly = true;
             telaDetCompromisso.monthCalendarCompromisso.Enabled = false;
@@ -253,11 +277,37 @@ namespace UI_ProjFinalDS
             // Exibe a tela com os detalhes.
 
             telaDetCompromisso.ShowDialog();
+            atualizarCompromisso();
             this.Show();
-            //atualizarCompromisso();
 
         }
 
-        
+        private void btnContatoRmv_Click(object sender, EventArgs e)
+        {
+
+            DataGridViewRow mySelectedRow = dataGridViewContatos.CurrentRow;
+
+            if (mySelectedRow.Selected) // Se a linha estiver selecionada...
+            {
+                // Avise o usuário sobre a operação, permita-o escolher continuar ou não. Se continuar, delete o compromisso.
+                DialogResult myAlert = MessageBox.Show("A exclusão é permanente, o contato será completamente removido.\nTem certeza que deseja continuar?", "ATENÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (myAlert == DialogResult.Yes)
+                {
+
+                    DTO_Contato obj_dtoContato = new DTO_Contato();
+                    BLL_Contato obj_bllContato = new BLL_Contato();
+
+                    // Index da linha selecionada para realizar a exclusão "Cells[0]" deve ser o cod_compromisso no dataGridViewCompromissos.
+                    obj_dtoContato.nomeContato = mySelectedRow.Cells[0].Value.ToString();
+
+                    string retornoBLL = obj_bllContato.validarRmvContato(obj_dtoContato);
+
+                    MessageBox.Show(retornoBLL, "CONCLUSÃO", MessageBoxButtons.OK);
+                    atualizarContato();
+                }
+
+            }
+        }
     }   // Fim da classe Home do Form.
 }
