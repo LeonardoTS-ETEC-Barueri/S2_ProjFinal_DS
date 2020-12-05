@@ -186,7 +186,8 @@ namespace DAL_ProjFinalDS
                 if (String.IsNullOrEmpty(obj_dtoConvidado.nomeContato))
                 {
                     script = "DELETE FROM tbl_convidado_compromisso " +
-                             "WHERE nome_contato = ' ' OR nome_contato IS NULL AND cod_compromisso = @codCompromisso;";
+                             "WHERE nome_contato = ' ' OR nome_contato IS NULL AND cod_compromisso = @codCompromisso " +
+                             "LIMIT 1;";
                 } else
                 {
                     script = "DELETE FROM tbl_convidado_compromisso " +
